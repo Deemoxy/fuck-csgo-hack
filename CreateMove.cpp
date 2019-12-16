@@ -1,0 +1,31 @@
+#include "hooks.h"
+
+#include <string>
+
+#include "engine_prediction.h"
+
+namespace n_hooks {
+	bool __fastcall n_functions::CreateMove( std::uintptr_t ecx, std::uintptr_t edx, float input_sample_time, CUserCmd* cmd ) {
+		if ( !cmd || !cmd->command_number )
+			return false;
+
+		C_CSPlayer* local_player = reinterpret_cast< C_CSPlayer* >( n_interfaces::entity_list->get_client_entity( n_interfaces::engine->get_local_player( ) ) );
+
+		if ( !local_player || !local_player->is_alive( ) )
+			return false;
+
+		cmd->buttons |= ( 1 << 22 );
+		
+		auto g_iModelBoneCounter = **reinterpret_cast< unsigned long** >( n_utilities::pattern_scan( "client_panoram.dll", "80 3D ? ? ? ? ? 74 16 A1 ? ? ? ? 48 C7 81" )  + 0x10 );
+		printf( std::string( std::to_string( g_iModelBoneCounter ) ).c_str( ) );
+
+		n_engine_prediction::initialize( local_player, cmd ); {
+			
+
+			
+		} 
+		n_engine_prediction::unload( local_player );
+
+		return false;
+	}
+}

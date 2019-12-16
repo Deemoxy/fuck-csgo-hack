@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{c3d38906-5b17-49ba-af3e-7cd571a6c2ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\utilities">
+      <UniqueIdentifier>{b8b64a8f-9821-4bc6-8cc8-f7e327d20cf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\vmt">
+      <UniqueIdentifier>{630d80db-a20a-40a1-b145-67877e36c199}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\hooks">
+      <UniqueIdentifier>{cbfa947c-8009-4041-b1d5-b021667c46fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\interfaces">
+      <UniqueIdentifier>{e19cb56e-c936-4afa-a1c2-15d5ac7d8ff3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\sdk">
+      <UniqueIdentifier>{9881290e-8e88-4739-8f2d-5883d7404413}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\netvar_manager">
+      <UniqueIdentifier>{bc8077e4-b141-4051-ae78-fd84ce9349bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\hooks\functions">
+      <UniqueIdentifier>{91bc9a07-01af-4211-a458-530af2316521}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\math">
+      <UniqueIdentifier>{f0370178-8ed4-4d2b-a5f9-906d4a7c551c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\entities">
+      <UniqueIdentifier>{658dca56-e182-40fa-b71e-6f570f4c8b23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\render">
+      <UniqueIdentifier>{d3de0b20-bc73-46ca-8dfa-cf3df6550e5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\features">
+      <UniqueIdentifier>{4daf52e8-9a2a-49ca-8bc6-ed25887ddd4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\entities\animations">
+      <UniqueIdentifier>{f11db70b-0444-40a2-b747-3d812142efc8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="vmt.cpp">
+      <Filter>source\vmt</Filter>
+    </ClCompile>
+    <ClCompile Include="hooks.cpp">
+      <Filter>source\hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="utilities.cpp">
+      <Filter>source\utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="interfaces.cpp">
+      <Filter>source\interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="netvar_manager.cpp">
+      <Filter>source\netvar_manager</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateMove.cpp">
+      <Filter>source\hooks\functions</Filter>
+    </ClCompile>
+    <ClCompile Include="GetViewModelFOV.cpp">
+      <Filter>source\hooks\functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Paint.cpp">
+      <Filter>source\hooks\functions</Filter>
+    </ClCompile>
+    <ClCompile Include="render.cpp">
+      <Filter>source\render</Filter>
+    </ClCompile>
+    <ClCompile Include="engine_prediction.cpp">
+      <Filter>source\features</Filter>
+    </ClCompile>
+    <ClCompile Include="SetupBones.cpp">
+      <Filter>source\hooks\functions</Filter>
+    </ClCompile>
+    <ClCompile Include="animations.cpp">
+      <Filter>source\entities\animations</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="common_includes.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities.h">
+      <Filter>source\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="vmt.h">
+      <Filter>source\vmt</Filter>
+    </ClInclude>
+    <ClInclude Include="hooks.h">
+      <Filter>source\hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="interfaces.h">
+      <Filter>source\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="IClientMode.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="IBaseClientDLL.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientClass.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="netvar_manager.h">
+      <Filter>source\netvar_manager</Filter>
+    </ClInclude>
+    <ClInclude Include="CUserCmd.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="vector3d.h">
+      <Filter>source\math</Filter>
+    </ClInclude>
+    <ClInclude Include="IVEngineClient.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="entity.h">
+      <Filter>source\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="IClientEntityList.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="IVEngineVGui.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="ISurface.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="render.h">
+      <Filter>source\render</Filter>
+    </ClInclude>
+    <ClInclude Include="engine_prediction.h">
+      <Filter>source\features</Filter>
+    </ClInclude>
+    <ClInclude Include="CGlobalVarsBase.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="IPrediction.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="IMoveHelper.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="CMoveData.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="IGameMovement.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="CBaseHandle.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="IWeaponSystem.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="IClientRenderable.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="IClientNetworkable.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="animations.h">
+      <Filter>source\entities\animations</Filter>
+    </ClInclude>
+    <ClInclude Include="UtlVector.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

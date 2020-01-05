@@ -2,19 +2,17 @@
 
 #include <cassert>
 
-inline int UtlMemory_CalcNewAllocationcount( int nAllocationcount, int nGrowSize, int nNewSize, int nBytesItem ) {
-	if ( nGrowSize ) {
-		nAllocationcount = ( ( 1 + ( ( nNewSize - 1 ) / nGrowSize ) ) * nGrowSize );
-	}
-	else {
-		if ( !nAllocationcount ) {
-			// Compute an allocation which is at least as big as a cache line...
-			nAllocationcount = ( 31 + nBytesItem ) / nBytesItem;
-		}
+// https://github.com/ValveSoftware/source-sdk-2013/blob/master/mp/src/public/tier1/utlmemory.h
 
-		while ( nAllocationcount < nNewSize ) {
+inline int UtlMemory_CalcNewAllocationcount( int nAllocationcount, int nGrowSize, int nNewSize, int nBytesItem ) {
+	if ( nGrowSize ) 
+		nAllocationcount = ( ( 1 + ( ( nNewSize - 1 ) / nGrowSize ) ) * nGrowSize );
+	else {
+		if ( !nAllocationcount ) 
+			nAllocationcount = ( 31 + nBytesItem ) / nBytesItem;
+
+		while ( nAllocationcount < nNewSize )
 			nAllocationcount *= 2;
-		}
 	}
 
 	return nAllocationcount;
@@ -49,14 +47,12 @@ public:
 
 		int new_alloc_count = UtlMemory_CalcNewAllocationcount( alloc_count, grow_size, alloc_requested, sizeof( T ) );
 
-		// if alloc_requested wraps index type I, recalculate
 		if ( (int )(I )new_alloc_count < alloc_requested ) {
 			if ( (int )(I )new_alloc_count == 0 && (int )(I )( new_alloc_count - 1 ) >= alloc_requested ) {
-				--new_alloc_count; // deal w/ the common case of alloc_count == MAX_USHORT + 1
+				--new_alloc_count;
 			}
 			else {
 				if ( (int )(I )alloc_requested != alloc_requested ) {
-					// we've been asked to grow memory to a size s.t. the index type can't address the requested amount of memory
 					assert( 0 );
 					return;
 				}

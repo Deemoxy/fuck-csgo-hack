@@ -6,8 +6,8 @@ namespace n_engine_prediction {
 	float old_current_time;
 	float old_frame_time;
 	void* move_data;
-	int *prediction_random_seed;
-	int * prediction_player;
+	int* prediction_random_seed;
+	int* prediction_player;
 
 	void initialize( C_CSPlayer* player, CUserCmd* cmd ) {
 		if ( !move_data )
@@ -77,7 +77,7 @@ namespace n_engine_prediction {
 
 		// CPlayerMove::RunThink
 		{
-			int *thinktick = reinterpret_cast< int* >( reinterpret_cast< std::uint32_t >( player ) + 0xFC );
+			int *thinktick = reinterpret_cast< int* >( reinterpret_cast< std::uint32_t >( player ) + 0x0FC );
 			if ( *thinktick != -1 && *thinktick > 0 && *thinktick <= player->get_tick_base( ) ) {
 				*thinktick = -1;
 				
@@ -93,7 +93,7 @@ namespace n_engine_prediction {
 		if ( !vehicle )
 			n_interfaces::game_movement->process_movement( player, reinterpret_cast< CMoveData* >( move_data ) );
 		// else - cbf
-			// ( *( void( __thiscall * * )( int, _DWORD*, void* ) )( *(_DWORD* )pVechile + 20 ) )( pVechile, player, g_pMoveData );
+			// ( *( void( __thiscall ** )( int, _DWORD*, void* ) )( *(_DWORD* )pVechile + 20 ) )( vehicle, player, move_data );
 
 		n_interfaces::prediction->finish_move( player, cmd, reinterpret_cast< CMoveData* >( move_data ) );
 

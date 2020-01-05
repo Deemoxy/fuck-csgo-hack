@@ -1,6 +1,6 @@
 #pragma once
 
-// cbf creating two different header - oops
+// cbf creating two different header files - oops
 
 // https://github.com/ValveSoftware/source-sdk-2013/blob/master/mp/src/game/shared/ehandle.h
 // https://github.com/ValveSoftware/source-sdk-2013/blob/master/mp/src/public/basehandle.h
@@ -57,14 +57,14 @@ protected:
 };
 
 template< class T >
-class c_handle : public CBaseHandle {
+class CHandle : public CBaseHandle {
 public:
-	c_handle( );
-	c_handle( int iEntry, int iSerialNumber );
-	c_handle( const CBaseHandle& handle );
-	c_handle( T* pVal );
+	CHandle( );
+	CHandle( int iEntry, int iSerialNumber );
+	CHandle( const CBaseHandle& handle );
+	CHandle( T* pVal );
 
-	static c_handle< T > from_index( int index );
+	static CHandle< T > from_index( int index );
 
 	T* get( ) const;
 	void set( const T* pVal );
@@ -81,73 +81,73 @@ public:
 };
 
 template< class T >
-c_handle< T >::c_handle( ) {}
+CHandle< T >::CHandle( ) {}
 
 template< class T >
-c_handle< T >::c_handle( int iEntry, int iSerialNumber ) {
+CHandle< T >::CHandle( int iEntry, int iSerialNumber ) {
 	init( iEntry, iSerialNumber );
 }
 
 template< class T >
-c_handle< T >::c_handle( const CBaseHandle& handle )
+CHandle< T >::CHandle( const CBaseHandle& handle )
 	: CBaseHandle( handle ) {}
 
 template< class T >
-c_handle< T >::c_handle( T* pObj ) {
+CHandle< T >::CHandle( T* pObj ) {
 	term( );
 	set( pObj );
 }
 
 template< class T >
-c_handle< T > c_handle< T >::from_index( int index ) {
-	c_handle< T > ret;
+CHandle< T > CHandle< T >::from_index( int index ) {
+	CHandle< T > ret;
 	ret.index = index;
 	return ret;
 }
 
 template< class T >
-T* c_handle< T >::get( ) const {
+T* CHandle< T >::get( ) const {
 	return reinterpret_cast< T* >( CBaseHandle::get( ) );
 }
 
 template< class T >
-c_handle< T >::operator T* ( ) {
+CHandle< T >::operator T* ( ) {
 	return get( );
 }
 
 template< class T >
-c_handle< T >::operator T* ( ) const {
+CHandle< T >::operator T* ( ) const {
 	return get( );
 }
 
 template< class T >
-bool c_handle< T >::operator !( ) const {
+bool CHandle< T >::operator !( ) const {
 	return !get( );
 }
 
 template< class T >
-bool c_handle< T >::operator==( T* val ) const {
+bool CHandle< T >::operator==( T* val ) const {
 	return get( ) == val;
 }
 
 template< class T >
-bool c_handle< T >::operator!=( T* val ) const {
+bool CHandle< T >::operator!=( T* val ) const {
 	return get( ) != val;
 }
 
 template< class T >
-void c_handle< T >::set( const T* pVal ) {
+void CHandle< T >::set( const T* pVal ) {
 	CBaseHandle::set( reinterpret_cast< const IHandleEntity* >( pVal ) );
 }
 
 template< class T >
-const CBaseHandle& c_handle< T >::operator=( const T* val ) {
+const CBaseHandle& CHandle< T >::operator=( const T* val ) {
 	set( val );
 	return *this;
 }
 
 template< class T >
-T* c_handle< T >::operator ->( ) const {
+T* CHandle< T >::operator ->( ) const {
 	return get( );
 }
 

@@ -74,8 +74,6 @@ unsigned long __stdcall unload_cheat( void* argument ) {
 	if ( !unload( ) )
 		std::abort( );
 
-	Beep( 500, 350 );
-
 	FreeLibraryAndExitThread( static_cast< HMODULE >( argument ), 0 );
 }
 

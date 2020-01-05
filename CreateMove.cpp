@@ -14,14 +14,9 @@ namespace n_hooks {
 		if ( !local_player || !local_player->is_alive( ) )
 			return false;
 
-		cmd->buttons |= ( 1 << 22 );
-		
-		auto g_iModelBoneCounter = **reinterpret_cast< unsigned long** >( n_utilities::pattern_scan( "client_panoram.dll", "80 3D ? ? ? ? ? 74 16 A1 ? ? ? ? 48 C7 81" )  + 0x10 );
-		printf( std::string( std::to_string( g_iModelBoneCounter ) ).c_str( ) );
+		cmd->buttons |= ( 1 << 22 ); // IN_BULLRUSH
 
 		n_engine_prediction::initialize( local_player, cmd ); {
-			
-
 			
 		} 
 		n_engine_prediction::unload( local_player );

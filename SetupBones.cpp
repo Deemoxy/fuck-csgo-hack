@@ -44,10 +44,11 @@ namespace n_hooks {
 			//	if ( *(BYTE* )( ecx + 0x2EA ) && n_interfaces::prediction->in_prediction( ) )
 			//		current_time = n_interfaces::prediction->saved_time;
 			//	
-			//	unsigned long g_iModelBoneCounter = *reinterpret_cast< unsigned long* >( n_utilities::pattern_scan( "client_panorama.dll", "3B 05 ? ? ? ? 0F 84 ? ? ? ? 8B 47 FC" ) );
 
 			//	if ( *(DWORD* )( ecx + 0x268C ) != g_iModelBoneCounter )
 			// }
+
+			// fuck this
 		}
 
 		return original_fn( ecx, edx, bone_to_world_out, max_bones, bone_mask, current_time );

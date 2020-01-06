@@ -101,7 +101,32 @@ namespace n_engine_prediction {
 
 		// CPlayerMove::RunPostThink
 		{
-			player->post_think( );
+			// rebuilt post_think to not call ItemPostFrame to prevent double shooting - player->post_think( );
+			auto post_think = [ ]( C_CSPlayer* player ) -> int {
+				n_utilities::get_virtual_function< void( __thiscall* )( void* ) >( n_interfaces::model_cache, 33 )( n_interfaces::model_cache );
+
+				if ( player->is_alive( ) /* index 155 for vfunc */ || *reinterpret_cast< std::uint32_t* >( reinterpret_cast< std::uint32_t >( player ) + 0x3A81 ) ) {
+					n_utilities::get_virtual_function< void( __thiscall* )( void* ) >( player, 339 )( player );
+
+					if ( player->get_flags( ) & 1 ) // FL_ONGROUND
+						*reinterpret_cast< std::uintptr_t* >( std::uintptr_t( player ) + 0x3014 ) = 0;
+
+					if ( *reinterpret_cast< std::uint32_t* >( reinterpret_cast< std::uint32_t >( player ) + 0x28BC ) == -1 ) // GetSequence( ) == -1
+						n_utilities::get_virtual_function< void( __thiscall* )( void*, int ) >( player, 218 )( player, 0 ); // SetSequence( 0 )
+
+					n_utilities::get_virtual_function< void( __thiscall* )( void* ) >( player, 219 )( player ); // StudioFrameAdvance( )
+
+					static auto post_think_v_physics = reinterpret_cast< bool( __thiscall* )( C_BaseEntity* ) >( n_utilities::pattern_scan( "client_panorama.dll", "55 8B EC 83 E4 F8 81 EC ? ? ? ? 53 8B D9 56 57 83 BB ? ? ? ? ? 75 50" ) );
+					post_think_v_physics( player );
+				}
+
+				static auto simulate_player_simulated_entities = reinterpret_cast< bool( __thiscall* )( C_BaseEntity* ) >( n_utilities::pattern_scan( "client_panorama.dll", "56 8B F1 57 8B BE ? ? ? ? 83 EF 01 78 72 90 8B 86" ) );
+				simulate_player_simulated_entities( player );
+
+				return n_utilities::get_virtual_function< int( __thiscall* )( void* ) >( n_interfaces::model_cache, 34 )( n_interfaces::model_cache );
+			};
+
+			post_think( player );
 		}
 	}
 

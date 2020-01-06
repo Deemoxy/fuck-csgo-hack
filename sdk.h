@@ -16,3 +16,4 @@
 #include "IWeaponSystem.h"
 #include "IClientRenderable.h"
 #include "IClientNetworkable.h"
+#include "IMDLCache.h"

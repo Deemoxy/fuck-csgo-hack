@@ -18,6 +18,7 @@ namespace n_interfaces {
 	IMoveHelper* move_helper = nullptr;
 	IGameMovement* game_movement = nullptr;
 	IWeaponSystem* weapon_system = nullptr;
+	IMDLCache* model_cache = nullptr;
 
 	bool initialize( void ) {
 		client = reinterpret_cast< IBaseClientDLL* >( n_utilities::capture_interface( "client_panorama.dll", "VClient018" ) );
@@ -73,6 +74,11 @@ namespace n_interfaces {
 		weapon_system = *reinterpret_cast< IWeaponSystem** >( n_utilities::pattern_scan( "client_panorama.dll", "8B 35 ? ? ? ? FF 10 0F B7 C0" ) + 2 );
 
 		if ( !weapon_system )
+			return false;
+
+		model_cache = reinterpret_cast< IMDLCache* >( n_utilities::capture_interface( "datacache.dll", "MDLCache004" ) );
+
+		if ( !model_cache )
 			return false;
 
 		return true;

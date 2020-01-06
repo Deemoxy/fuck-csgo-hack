@@ -173,5 +173,8 @@
     <ClInclude Include="UtlVector.h">
       <Filter>source\sdk</Filter>
     </ClInclude>
+    <ClInclude Include="IMDLCache.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

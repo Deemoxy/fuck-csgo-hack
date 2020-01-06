@@ -16,6 +16,7 @@ namespace n_interfaces {
 	extern IMoveHelper* move_helper;
 	extern IGameMovement* game_movement;
 	extern IWeaponSystem* weapon_system;
+	extern IMDLCache* model_cache;
 
 	bool initialize( void );
 }

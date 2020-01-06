@@ -155,6 +155,7 @@
     <ClInclude Include="IClientNetworkable.h" />
     <ClInclude Include="IClientRenderable.h" />
     <ClInclude Include="IGameMovement.h" />
+    <ClInclude Include="IMDLCache.h" />
     <ClInclude Include="IMoveHelper.h" />
     <ClInclude Include="interfaces.h" />
     <ClInclude Include="IPrediction.h" />

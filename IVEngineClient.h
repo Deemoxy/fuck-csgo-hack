@@ -39,6 +39,9 @@ public:
 	// returns true if the player is connected, but not necessarily active in game (could still be loading)
 	virtual_fn( is_connected( void ), 27, bool( __thiscall* )( void* ) ); // 27
 
+	// gets a way to perform spatial queries on the BSP tree
+	virtual_fn( get_bsp_tree_query( void ), 43, void* ( __thiscall* )( void* ) ); // 43
+
 	// get the name of the current map
 	virtual_fn( get_level_name( void ), 52, char const* ( __thiscall* )( void* ) ); // 52
 

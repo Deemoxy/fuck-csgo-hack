@@ -16,6 +16,8 @@ public:
 	}
 
 	netvar_fn( get_simulation_time( ), int, "DT_BaseEntity", "m_flSimulationTime" );
+
+	virtual_fn( is_player( void ), 157, bool( __thiscall* )( void* ) ); // unk
 };
 
 class C_BaseCombatCharacter : public C_BaseEntity {
@@ -55,7 +57,7 @@ public:
 
 class C_BaseAnimating : public C_BasePlayer {
 public:
-
+	offset_fn( get_model_ptr( ), void*, 0x294C );
 };
 
 class C_BaseCombatWeapon {

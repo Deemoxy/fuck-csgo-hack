@@ -19,6 +19,9 @@ namespace n_interfaces {
 	IGameMovement* game_movement = nullptr;
 	IWeaponSystem* weapon_system = nullptr;
 	IMDLCache* model_cache = nullptr;
+	IVModelRender* model_render = nullptr;
+	IMaterialSystem* material_system = nullptr;
+	IVModelInfo* model_info = nullptr;
 
 	bool initialize( void ) {
 		client = reinterpret_cast< IBaseClientDLL* >( n_utilities::capture_interface( "client_panorama.dll", "VClient018" ) );
@@ -79,6 +82,21 @@ namespace n_interfaces {
 		model_cache = reinterpret_cast< IMDLCache* >( n_utilities::capture_interface( "datacache.dll", "MDLCache004" ) );
 
 		if ( !model_cache )
+			return false;
+
+		model_render = reinterpret_cast< IVModelRender* >( n_utilities::capture_interface( "engine.dll", "VEngineModel016" ) );
+
+		if ( !model_render )
+			return false;
+
+		material_system = reinterpret_cast< IMaterialSystem* >(n_utilities::capture_interface( "materialsystem.dll", "VMaterialSystem080" ));
+
+		if ( !material_system )
+			return false;
+
+		model_info = reinterpret_cast< IVModelInfo* >(n_utilities::capture_interface( "engine.dll", "VModelInfoClient004" ));
+
+		if ( !model_info )
 			return false;
 
 		return true;

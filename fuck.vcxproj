@@ -126,10 +126,12 @@
   <ItemGroup>
     <ClCompile Include="animations.cpp" />
     <ClCompile Include="CreateMove.cpp" />
+    <ClCompile Include="DrawModeExecute.cpp" />
     <ClCompile Include="engine_prediction.cpp" />
     <ClCompile Include="GetViewModelFOV.cpp" />
     <ClCompile Include="hooks.cpp" />
     <ClCompile Include="interfaces.cpp" />
+    <ClCompile Include="ListLeavesInBox.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="netvar_manager.cpp" />
     <ClCompile Include="Paint.cpp" />
@@ -154,7 +156,11 @@
     <ClInclude Include="IClientMode.h" />
     <ClInclude Include="IClientNetworkable.h" />
     <ClInclude Include="IClientRenderable.h" />
+    <ClInclude Include="IClientUnknown.h" />
     <ClInclude Include="IGameMovement.h" />
+    <ClInclude Include="IHandleEntity.h" />
+    <ClInclude Include="IMaterial.h" />
+    <ClInclude Include="IMaterialSystem.h" />
     <ClInclude Include="IMDLCache.h" />
     <ClInclude Include="IMoveHelper.h" />
     <ClInclude Include="interfaces.h" />
@@ -162,6 +168,8 @@
     <ClInclude Include="ISurface.h" />
     <ClInclude Include="IVEngineVGui.h" />
     <ClInclude Include="IVEngineClient.h" />
+    <ClInclude Include="IVModelInfo.h" />
+    <ClInclude Include="IVModelRender.h" />
     <ClInclude Include="IWeaponSystem.h" />
     <ClInclude Include="netvar_manager.h" />
     <ClInclude Include="render.h" />

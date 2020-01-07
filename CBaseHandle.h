@@ -1,7 +1,8 @@
 #pragma once
 
-// cbf creating two different header files - oops
+#include "IHandleEntity.h"
 
+// cbf creating two different header files - oops
 // https://github.com/ValveSoftware/source-sdk-2013/blob/master/mp/src/game/shared/ehandle.h
 // https://github.com/ValveSoftware/source-sdk-2013/blob/master/mp/src/public/basehandle.h
 
@@ -11,15 +12,6 @@
 #define NUM_SERIAL_NUM_BITS        16
 #define NUM_SERIAL_NUM_SHIFT_BITS  ( 32 - NUM_SERIAL_NUM_BITS )
 #define ENT_ENTRY_MASK             ( ( 1 << NUM_SERIAL_NUM_BITS ) - 1)
-
-class CBaseHandle;
-
-class IHandleEntity {
-public:
-	virtual ~IHandleEntity( ) { }
-	virtual void set_handle( const CBaseHandle& handle ) = 0;
-	virtual const CBaseHandle& get_handle( ) const = 0;
-};
 
 class CBaseHandle {
 public:

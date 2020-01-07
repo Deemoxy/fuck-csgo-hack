@@ -81,6 +81,12 @@
     <ClCompile Include="animations.cpp">
       <Filter>source\entities\animations</Filter>
     </ClCompile>
+    <ClCompile Include="ListLeavesInBox.cpp">
+      <Filter>source\hooks\functions</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawModeExecute.cpp">
+      <Filter>source\hooks\functions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common_includes.h">
@@ -174,6 +180,24 @@
       <Filter>source\sdk</Filter>
     </ClInclude>
     <ClInclude Include="IMDLCache.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="IClientUnknown.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="IVModelRender.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="IMaterial.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="IMaterialSystem.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="IVModelInfo.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="IHandleEntity.h">
       <Filter>source\sdk</Filter>
     </ClInclude>
   </ItemGroup>

@@ -17,6 +17,9 @@ namespace n_interfaces {
 	extern IGameMovement* game_movement;
 	extern IWeaponSystem* weapon_system;
 	extern IMDLCache* model_cache;
+	extern IVModelRender* model_render;
+	extern IMaterialSystem* material_system;
+	extern IVModelInfo* model_info;
 
 	bool initialize( void );
 }

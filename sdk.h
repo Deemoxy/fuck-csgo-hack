@@ -17,3 +17,8 @@
 #include "IClientRenderable.h"
 #include "IClientNetworkable.h"
 #include "IMDLCache.h"
+#include "IClientUnknown.h"
+#include "IVModelRender.h"
+#include "IMaterial.h"
+#include "IMaterialSystem.h"
+#include "IVModelInfo.h"

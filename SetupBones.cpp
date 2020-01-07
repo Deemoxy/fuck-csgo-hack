@@ -12,43 +12,33 @@ namespace n_hooks {
 		auto original_fn = g_animations.track[ player->networkable( )->ent_index( ) ].renderable->get_original_function<decltype( &SetupBones )>( 13 );
 
 		if ( player && player->is_alive( ) ) {
+			//if ( bone_to_world_out != nullptr ) {
+			//	static float last_real_time = 0.f;
+
+			//	if ( n_interfaces::global_vars_base->real_time >= last_real_time + 1.f )
+			//		last_real_time = n_interfaces::global_vars_base->real_time;
+			//}
+
 			//bone_mask = bone_mask | 0x80000;
-			//
-			//if ( *(DWORD* )( ecx + 0x28B8 ) != -1 ) {
-			//	if ( bone_mask != -1 ) 
-			//		bone_mask = *(DWORD* )( ecx + 0x2698 );
 
-			//	/*if ( Interfaces::Cvar->FindVar( "cl_setupallbones" )->GetInt( ) )
-			//		bone_mask = bone_mask | 0xFFF00;*/
+			//if ( *reinterpret_cast< std::uint32_t* >(reinterpret_cast< std::uint32_t >( ecx ) + 0x28B8 ) != -1 )
+			//	return false;
 
-			//	if ( !*(BYTE* )( ecx + 0x28D ) )
-			//		bone_mask = bone_mask | 0xFFF00;
+			//if ( bone_mask == -1 )
+			//	bone_mask = *reinterpret_cast< std::uint32_t* >( reinterpret_cast< std::uint32_t >( ecx ) + 0x2698 ); // m_iPrevBoneMask
 
-			//	int nLOD = 0;
-			//	int nMask = 0x400; // BONE_USED_BY_VERTEX_LOD0
-			//	do {
-			//		if ( bone_mask & nMask )
-			//			break;
-			//		++nLOD;
-			//		nMask *= 2;
-			//	} while ( nLOD < 8 );
-			//	if ( nLOD < 8 ) {
-			//		int v26 = 8 - nLOD;
-			//		do {
-			//			bone_mask |= nMask;
-			//			nMask *= 2;
-			//			--v26;
-			//		} while ( v26 );
-			//	}
+			///*if ( ( void*** )dword_10D20F3C == &off_10D20F20 )
+			//	v16 = ( unsigned int )&off_10D20F20 ^ dword_10D20F50;
+			//else
+			//	v16 = (*(int (**)(void))(*( _DWORD* )dword_10D20F3C + 52))();*/
 
-			//	if ( *(BYTE* )( ecx + 0x2EA ) && n_interfaces::prediction->in_prediction( ) )
-			//		current_time = n_interfaces::prediction->saved_time;
-			//	
+			//bone_mask = bone_mask | 0xFFF00;
 
-			//	if ( *(DWORD* )( ecx + 0x268C ) != g_iModelBoneCounter )
-			// }
+			///*if ( !v16 )
+			//	bone_mask_2 = bone_mask_1;*/
 
-			// fuck this
+			//if ( !*reinterpret_cast< std::uint32_t* >( reinterpret_cast< std::uint32_t >( ecx ) + 0x2698 ) )
+			//	bone_mask = bone_mask;
 		}
 
 		return original_fn( ecx, edx, bone_to_world_out, max_bones, bone_mask, current_time );

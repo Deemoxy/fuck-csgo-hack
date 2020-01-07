@@ -23,7 +23,7 @@ namespace n_hooks {
 				n_interfaces::surface->draw_filled_rect_fade( 5, 20, 115, 40, 255, 122, true );
 
 				// the loop and everything inside is very temporary and is only an example
-				for ( int i = 1; i <= n_interfaces::global_vars_base->max_clients; i++ ) {
+				/*for ( int i = 1; i <= n_interfaces::global_vars_base->max_clients; i++ ) {
 					C_CSPlayer* player = reinterpret_cast< C_CSPlayer* >( n_interfaces::entity_list->get_client_entity( i ) );
 
 					if ( !player || !player->is_alive( ) )
@@ -40,7 +40,7 @@ namespace n_hooks {
 						continue;
 
 					std::cout << "id: " + std::to_string( i ) + " weapon: " + weapon_data->weapon_name << std::endl;
-				}
+				}*/
 			}
 			finish_drawing_fn( n_interfaces::surface );
 		}

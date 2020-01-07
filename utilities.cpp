@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <vector>
+#include <fstream>
 
 namespace n_utilities {
 	bool initialize_console( const char* window_name ) {

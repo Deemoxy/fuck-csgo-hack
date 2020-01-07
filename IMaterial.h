@@ -4,6 +4,8 @@
 
 // https://github.com/ValveSoftware/source-sdk-2013/blob/master/mp/src/public/materialsystem/imaterial.h
 
+class IMaterialVar;
+
 enum MaterialVarFlags_t {
 	MATERIAL_VAR_DEBUG = (1 << 0),
 	MATERIAL_VAR_NO_DEBUG_OVERRIDE = (1 << 1),
@@ -42,6 +44,12 @@ enum MaterialVarFlags_t {
 
 class IMaterial {
 public:
+	// find a vmt variable.
+	// this is how game code affects how a material is rendered.
+	// the game code must know about the params that are used by
+	// the shader for the material that it is trying to affect.
+	virtual_fn( find_var( const char* name, bool* found, bool complain = true ), 11, IMaterialVar* ( __thiscall* )( void*, const char*, bool*, bool) , name, found, complain ); // 11
+
 	// apply constant color or alpha modulation
 	virtual_fn( alpha_modulate( float alpha ), 27, void( __thiscall* )( void*, float ), alpha ); // 27
 	virtual_fn( color_modulate( float r, float g, float b ), 28, void( __thiscall* )( void*, float, float, float ), r, g, b ); // 28

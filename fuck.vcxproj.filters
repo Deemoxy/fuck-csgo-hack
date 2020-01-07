@@ -200,5 +200,8 @@
     <ClInclude Include="IHandleEntity.h">
       <Filter>source\sdk</Filter>
     </ClInclude>
+    <ClInclude Include="IMaterialVar.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

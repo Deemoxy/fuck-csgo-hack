@@ -1,7 +1,6 @@
 #include "hooks.h"
 
 #include <intrin.h>
-#include <string>
 
 // https://www.unknowncheats.me/forum/counterstrike-global-offensive/330483-disable-model-occulusion.html
 

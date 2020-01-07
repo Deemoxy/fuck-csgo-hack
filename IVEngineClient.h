@@ -1,10 +1,9 @@
 #pragma once
 
 #include "utilities.h"
+#include "vector3d.h"
 
 // https://github.com/ValveSoftware/source-sdk-2013/blob/master/sp/src/public/cdll_int.h
-
-struct vector3d_t;
 
 class IVEngineClient {
 public:

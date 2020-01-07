@@ -9,6 +9,8 @@ namespace n_hooks {
 	int __fastcall n_functions::ListLeavesInBox( std::uintptr_t ecx, std::uintptr_t edx, vector3d_t& mins, vector3d_t& maxs, unsigned short* list, int list_max ) {
 		static auto original_fn = n_hooks::bsp_query->get_original_function< decltype( &ListLeavesInBox ) >( 6 );
 
+		// CClientLeafSystem::InsertIntoTree sig "55 8B EC 83 E4 F8 81 EC ? ? ? ? 8B 45 08 53 56 8B 75"
+		// [...]
 		// .text:1024D4D7                   call    dword ptr[ eax + 18h ]      // called here
 		// .text:1024D4DA                   mov[ esp + 930h + leaf_count ], eax // return here ( so u should sig this one... )
 		// .text:1024D4DE                   jmp     short loc_1024D4E8 */       // :)

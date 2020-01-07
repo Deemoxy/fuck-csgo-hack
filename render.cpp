@@ -37,22 +37,22 @@ namespace n_render {
 		return true;
 	}
 
-	void filled_rect( int x, int y, int w, int h, int r, int g, int b, int a ) {
+	void filled_rect( const int x, const int y, const int w, const int h, const int r, const int g, const int b, const int a ) {
 		n_interfaces::surface->draw_set_color( r, g, b, a );
 		n_interfaces::surface->draw_filled_rect( x, y, x + w, y + h );
 	}
 
-	void outlined_rect( int x, int y, int w, int h, int r, int g, int b, int a ) {
+	void outlined_rect( const int x, const int y, const int w, const int h, const int r, const int g, const int b, const int a ) {
 		n_interfaces::surface->draw_set_color( r, g, b, a );
 		n_interfaces::surface->draw_outlined_rect( x, y, x + w, y + h );
 	}
 
-	void line( int x, int y, int w, int h, int r, int g, int b, int a ) {
+	void line( const int x, const int y, const int w, const int h, const int r, const int g, const int b, const int a ) {
 		n_interfaces::surface->draw_set_color( r, g, b, a );
 		n_interfaces::surface->draw_line( x, y, x + w, y + h );
 	}
 
-	void text( HFont font, std::string text, int x, int y, bool centered, int r, int g, int b, int a ) {
+	void text( const HFont font, const std::string text, const int x, const int y, const bool centered, const int r, const int g, const int b, const int a ) {
 		std::wstring converted_text = std::wstring( text.begin( ), text.end( ) );
 
 		int width, height;
@@ -68,6 +68,6 @@ namespace n_render {
 
 		n_interfaces::surface->draw_set_text_pos( _x, _y );
 
-		n_interfaces::surface->draw_print_text( converted_text.c_str( ), std::wcslen( converted_text.c_str( ) ) );
+		n_interfaces::surface->draw_print_text( converted_text.c_str( ), converted_text.length( ) );
 	}
 }

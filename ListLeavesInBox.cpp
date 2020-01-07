@@ -12,7 +12,7 @@ namespace n_hooks {
 		// [...]
 		// .text:1024D4D7                   call    dword ptr[ eax + 18h ]      // called here
 		// .text:1024D4DA                   mov[ esp + 930h + leaf_count ], eax // return here ( so u should sig this one... )
-		// .text:1024D4DE                   jmp     short loc_1024D4E8 */       // :)
+		// .text:1024D4DE                   jmp     short loc_1024D4E8          // :)
 		static auto insert_into_tree_call_list_leaves_in_box = reinterpret_cast< std::uintptr_t >( n_utilities::pattern_scan( "client_panorama.dll", "89 44 24 14 EB 08 C7 44 24 ? ? ? ? ? 8B 45" ) );
 
 		if ( reinterpret_cast< std::uintptr_t >( _ReturnAddress( ) ) != insert_into_tree_call_list_leaves_in_box )

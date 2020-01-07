@@ -62,7 +62,7 @@ namespace n_utilities {
 			return nullptr;
 
 		static auto pattern_to_byte = [ ]( const char* pattern ) {
-			auto bytes = std::vector<int>{ };
+			auto bytes = std::vector< int >{ };
 			auto start = const_cast< char* > ( pattern );
 			auto end = const_cast< char* > ( pattern ) + strlen( pattern );
 

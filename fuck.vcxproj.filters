@@ -203,5 +203,11 @@
     <ClInclude Include="IMaterialVar.h">
       <Filter>source\sdk</Filter>
     </ClInclude>
+    <ClInclude Include="matrix.h">
+      <Filter>source\math</Filter>
+    </ClInclude>
+    <ClInclude Include="IVDebugOverlay.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

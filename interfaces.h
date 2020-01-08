@@ -20,6 +20,7 @@ namespace n_interfaces {
 	extern IVModelRender* model_render;
 	extern IMaterialSystem* material_system;
 	extern IVModelInfo* model_info;
+	extern IVDebugOverlay* debug_overlay;
 
 	bool initialize( void );
 }

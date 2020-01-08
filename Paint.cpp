@@ -23,10 +23,15 @@ namespace n_hooks {
 				n_interfaces::surface->draw_filled_rect_fade( 5, 20, 115, 40, 255, 122, true );
 
 				// the loop and everything inside is very temporary and is only an example
-				/*for ( int i = 1; i <= n_interfaces::global_vars_base->max_clients; i++ ) {
+				for ( int i = 1; i <= n_interfaces::global_vars_base->max_clients; i++ ) {
 					C_CSPlayer* player = reinterpret_cast< C_CSPlayer* >( n_interfaces::entity_list->get_client_entity( i ) );
 
 					if ( !player || !player->is_alive( ) )
+						continue;
+
+					vector3d_t screen_position, eye_position = player->get_bone_position( player->get_bone_id( "head_0" ) );
+
+					if ( n_interfaces::debug_overlay->screen_position( eye_position, screen_position ) == 1 )
 						continue;
 
 					C_BaseCombatWeapon* weapon = player->get_active_weapon( );
@@ -39,8 +44,8 @@ namespace n_hooks {
 					if ( !weapon_data )
 						continue;
 
-					std::cout << "id: " + std::to_string( i ) + " weapon: " + weapon_data->weapon_name << std::endl;
-				}*/
+					n_render::text( n_render::n_font::main, weapon_data->weapon_name, static_cast< int >( screen_position.x ), static_cast< int >( screen_position.y ), true, 255, 255, 255, 255 );
+				}
 			}
 			finish_drawing_fn( n_interfaces::surface );
 		}

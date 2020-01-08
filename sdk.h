@@ -23,3 +23,4 @@
 #include "IMaterialSystem.h"
 #include "IVModelInfo.h"
 #include "IMaterialVar.h"
+#include "IVDebugOverlay.h"

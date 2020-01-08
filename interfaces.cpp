@@ -22,6 +22,7 @@ namespace n_interfaces {
 	IVModelRender* model_render = nullptr;
 	IMaterialSystem* material_system = nullptr;
 	IVModelInfo* model_info = nullptr;
+	IVDebugOverlay* debug_overlay = nullptr;
 
 	bool initialize( void ) {
 		client = reinterpret_cast< IBaseClientDLL* >( n_utilities::capture_interface( "client_panorama.dll", "VClient018" ) );
@@ -89,14 +90,19 @@ namespace n_interfaces {
 		if ( !model_render )
 			return false;
 
-		material_system = reinterpret_cast< IMaterialSystem* >(n_utilities::capture_interface( "materialsystem.dll", "VMaterialSystem080" ));
+		material_system = reinterpret_cast< IMaterialSystem* >( n_utilities::capture_interface( "materialsystem.dll", "VMaterialSystem080" ) );
 
 		if ( !material_system )
 			return false;
 
-		model_info = reinterpret_cast< IVModelInfo* >(n_utilities::capture_interface( "engine.dll", "VModelInfoClient004" ));
+		model_info = reinterpret_cast< IVModelInfo* >( n_utilities::capture_interface( "engine.dll", "VModelInfoClient004" ) );
 
 		if ( !model_info )
+			return false;
+
+		debug_overlay = reinterpret_cast< IVDebugOverlay* >( n_utilities::capture_interface( "engine.dll", "VDebugOverlay004" ) );
+
+		if ( !debug_overlay )
 			return false;
 
 		return true;

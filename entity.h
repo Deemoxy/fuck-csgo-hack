@@ -4,6 +4,7 @@
 #include "utilities.h"
 #include "interfaces.h"
 #include "vector3d.h"
+#include "matrix.h"
 
 class C_BaseEntity {
 public:
@@ -16,6 +17,7 @@ public:
 	}
 
 	netvar_fn( get_simulation_time( ), int, "DT_BaseEntity", "m_flSimulationTime" );
+	netvar_fn( get_vec_origin( ), vector3d_t, "DT_BaseEntity", "m_vecOrigin" );
 
 	virtual_fn( is_player( void ), 157, bool( __thiscall* )( void* ) ); // unk
 };
@@ -58,6 +60,20 @@ public:
 class C_BaseAnimating : public C_BasePlayer {
 public:
 	offset_fn( get_model_ptr( ), void*, 0x294C );
+
+	int get_bone_id( const char* name ) {
+		static auto lookup_bone_fn = reinterpret_cast< int( __thiscall* )( void*, const char* ) >( n_utilities::pattern_scan( "client_panorama.dll", "55 8B EC 53 56 8B F1 57 83 BE ? ? ? ? ? 75" ) );
+		return lookup_bone_fn( this, name );
+	}
+
+	vector3d_t get_bone_position( int bone_id ) { // found this old post when looking for this func - https://www.unknowncheats.me/forum/counterstrike-global-offensive/169553-bones-dyanimically.html
+		vector3d_t position{ }, rotation{ };
+
+		static auto get_bone_position_fn = reinterpret_cast< void( __thiscall* )( void*, int, vector3d_t*, vector3d_t* ) >( n_utilities::pattern_scan( "client_panorama.dll", "55 8B EC 83 E4 F8 83 EC 30 8D" ) );
+		get_bone_position_fn( this, bone_id, &position, &rotation );
+
+		return position;
+	}
 };
 
 class C_BaseCombatWeapon {
@@ -72,10 +88,11 @@ public:
 class C_CSPlayer : public C_BaseAnimating {
 public:
 	vector3d_t get_eye_position( void ) {
-		vector3d_t vector;
-
-		n_utilities::get_virtual_function< void( __thiscall* )( void*, vector3d_t* ) >( this, 284 )( this, &vector ); // 55 8B EC 56 8B 75 08 57 8B F9 56 8B 07 FF 90
+		vector3d_t vector{ };
 		
+		static auto weapon_shoot_position_fn = reinterpret_cast< float*( __thiscall* )( void*, vector3d_t* ) >( n_utilities::pattern_scan( "client_panorama.dll", "55 8B EC 56 8B 75 08 57 8B F9 56 8B 07 FF 90" ) );
+		weapon_shoot_position_fn( this, &vector );
+
 		return vector;
 	}
 
